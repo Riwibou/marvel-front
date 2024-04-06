@@ -7,7 +7,7 @@ export const BookmarkContext = createContext();
 
 const BookmarkProvider = ({ children }) => {
   const [state, dispatch] = useReducer(bookmarkReducer, {
-    bookmark: [],
+    bookmarks: [],
   });
 
   return (
