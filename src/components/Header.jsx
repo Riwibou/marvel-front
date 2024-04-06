@@ -6,18 +6,17 @@ import { Link } from "react-router-dom"
 function Header({token, handleToken}) {
   return (
     <div>
-      <img src="MARVEL" alt="logo marvel" />
+      <div className="logo-div">
+        <img src="logo.png" alt="logo marvel" />
+      </div>
+
         <nav>
           <ul>
             <li>
-              <Link to="/">Characters</Link>
+              <Link to="/characters">Characters</Link>
             </li>
             <li>
               <Link to="/comics">Comics</Link>
-            </li>
-            <li>
-              <Link to="/bookmarks">Bookmarks</Link>
-              {/* il y a surement le token a impliquer dans bookmarks, a voir plus tard ! */}
             </li>
           </ul>
           {token ? (
