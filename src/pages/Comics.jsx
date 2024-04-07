@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import Pagination from "react-js-pagination";
@@ -54,6 +55,8 @@ const Comics = () => {
           console.log(bookmark);
 
           return (
+            <>
+            <Link key={comic._id} to={`/comic/${comic._id}`}>
           <div key={comic._id} className="comic-card">
             <h1>{comic.name}</h1>
               <div className="comic-info">
@@ -90,7 +93,10 @@ const Comics = () => {
                   <p>{comic.description}</p>
                 </div>
               </div>
+
           </div>
+          </Link>
+          </>
         )
       }
         )}

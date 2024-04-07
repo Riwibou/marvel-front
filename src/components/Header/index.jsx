@@ -41,6 +41,12 @@ const Header = ({ token, search, handleToken, setSearch }) => {
                 <div className="dropdown" style={{ display: 'none' }}>
                   <Dropdown/>
                 </div>
+                <li>
+                <Link to="/characters">View Characters</Link>
+                </li>
+                <li>
+                <Link to="/comics">View Comics</Link>
+                </li>
               </>
               ) : (
                 <>
@@ -53,6 +59,12 @@ const Header = ({ token, search, handleToken, setSearch }) => {
                   <Link className="signup-btn" to="/signup">
                     <p>S&apos;inscrire</p>
                   </Link>
+                </li>
+                <li>
+                <Link to="/characters">View Characters</Link>
+                </li>
+                <li>
+                <Link to="/comics">View Comics</Link>
                 </li>
               </>
               )}
