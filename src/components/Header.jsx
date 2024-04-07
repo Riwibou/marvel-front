@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 // contiendra des liens vers characters, comics et bookmark et un sign in et login
 import { Link } from "react-router-dom"
+import Dropdown from "./Dropdown"
+import List from "./List"
 
 
 function Header({token, handleToken}) {
@@ -20,7 +22,15 @@ function Header({token, handleToken}) {
             </li>
           </ul>
           {token ? (
+              <>
                 <button onClick={() => {handleToken(null)}}> Deconnexion </button>
+                <div>
+                  <List/>
+                </div>
+                <div className="dropdown" style={{ display: 'none' }}>
+                  <Dropdown/>
+                </div>
+              </>
               ) : (
                 <>
                   <li>

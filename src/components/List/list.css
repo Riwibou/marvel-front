@@ -1,0 +1,45 @@
+.cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 7.2rem;
+  position: relative;
+}
+
+.small-cart {
+  cursor: pointer;
+}
+
+.small-cart:hover {
+  color: black;
+}
+
+.badge {
+  background-color: #a20202;
+  border-radius: 15px;
+  color: rgb(242, 211, 10);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 8px;
+  height: 3px;
+  padding: 6px 7px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+  width: 6px;
+  position: absolute;
+  top: 13%;
+  left: 7.5%;
+}
+/*# sourceMappingURL=cart.css.map */

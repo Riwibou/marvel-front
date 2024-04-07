@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Pagination from "react-js-pagination"
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1)
+  const [charactersPerPage] = useState(100)
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -21,6 +24,17 @@ const Characters = () => {
     fetchCharacters();
   }, []);
 
+  const indexOfLastCharacter = currentPage * charactersPerPage
+  const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage
+  const currentCharacters = characters.slice(
+    indexOfFirstCharacter,
+    indexOfLastCharacter
+  )
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
   return isLoading ? (
     <p>😩 Loading 😩</p>
   ) : (
@@ -35,11 +49,13 @@ const Characters = () => {
             );
           }) // .map sur le reste
           .map((character) => {
+            const {_id} = character
+            console.log("id ====>", _id);
             return (
               <div key={character._id} className="character-card">
                 <h1>{character.name}</h1>
                 <Link
-                  to={`http://localhost:3000/character/${character._id}`}
+                  to={`/comics/${_id}`}
                 >
                   <div className="character-info">
                     <div className="character-image">

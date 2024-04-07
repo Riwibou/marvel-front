@@ -43,7 +43,7 @@ const Signup = ({ handleToken }) => {
         );
         console.log(response.data.token);
         handleToken(response.data.token);
-        navigate("/");
+        navigate("/characters");
       } catch (error) {
         console.log(error.response.status);
       }

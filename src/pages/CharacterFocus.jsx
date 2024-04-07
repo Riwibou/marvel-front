@@ -1,5 +1,35 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
+import axios from "axios"
+
 const CharacterFocus = ({ character }) => {
+  const [comics, setComics] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(()=>{
+    const fetchComics = async () => {
+      try {
+        if (character.comics.length === 0) {
+          setIsLoading(false);
+          return;
+        }
+
+        const comicsData = []
+          for (const comicId of character.comics) {
+            const response = await axios.get('http://localhost:3000/comic/${characterId}')
+            comicsData.push(response.data)
+          }
+
+        setComics(comicsData)
+        setIsLoading(false)
+
+      } catch (error) {
+        console.log({ message: error.message });
+      }
+    }
+    fetchComics()
+  }, [character.comics])
+
   return (
     <div className="character-detail">
       <h1>{character.name}</h1>
@@ -12,11 +42,15 @@ const CharacterFocus = ({ character }) => {
       <div className="character-description">
         <p>{character.description || "No description available"}</p>
         <h2>Comics:</h2>
-        <ul>
-          {character.comics.map((comicId) => (
-            <li key={comicId}>{comicId}</li>
-          ))}
-        </ul>
+        {isLoading? (
+          <p>Loading comics ...</p>
+        ) : (
+          <ul>
+            {comics.map((comic) => (
+              <li key={comic._id}>{comic.title}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
