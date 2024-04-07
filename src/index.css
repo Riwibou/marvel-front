@@ -13,8 +13,8 @@ body {
 }
 .characters-container, .comics-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Adjust card width */
-  gap: 20px; /* Adjust gap between cards */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  gap: 20px;
 }
 
 .character-card, .comic-card {
