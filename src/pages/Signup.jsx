@@ -43,7 +43,7 @@ const Signup = ({ handleToken }) => {
           }
 
         const response = await axios
-            .post("site--marvel--gpvxp89pqghq.code.run/signup", data)
+            .post("https://site--marvel--gpvxp89pqghq.code.run/signup", data)
             .then((response) => { console.log(response.data.token);
               handleToken(response.data.token);
               navigate("/characters");}

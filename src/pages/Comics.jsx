@@ -26,7 +26,7 @@ const Comics = () => {
   useEffect(() => {
     const fetchComics = async () => {
       try {
-        const response = await axios.get(`site--marvel--gpvxp89pqghq.code.run/comics?page=${currentPage}`);
+        const response = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/comics?page=${currentPage}`);
         const filteredComics = response.data.results.filter(comic => {
           return comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
                  comic.thumbnail.extension !== "gif";

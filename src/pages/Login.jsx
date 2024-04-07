@@ -23,7 +23,7 @@ const Login = ({ handleToken }) => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'site--marvel--gpvxp89pqghq.code.run/login',
+      url: 'https://site--marvel--gpvxp89pqghq.code.run/login',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${Cookies.get("marvel-token")}`
