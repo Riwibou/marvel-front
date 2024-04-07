@@ -32,24 +32,18 @@ const Signup = ({ handleToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     if (validateForm()) {
       try {
-        let data = {
-          email,
-          password,
-        };
-        data = JSON.stringify(data);
-        let config = {
-          method: "post",
-          maxBodyLength: Infinity,
-          url: "http://localhost:3000/signup",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: data,
-        };
+
+        let data =
+          {
+            email: email,
+            password: password
+          }
+
         const response = await axios
-            .request(config)
+            .post("http://localhost:3000/signup", data)
             .then((response) => { console.log(response.data.token);
               handleToken(response.data.token);
               navigate("/characters");}

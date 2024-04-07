@@ -2,6 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
@@ -13,20 +14,32 @@ const Login = ({ handleToken }) => {
     e.preventDefault();
     setError("");
 
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
-      handleToken(response.data.token);
-      navigate("/");
-    } catch (error) {
-      console.error("Login failed:", error);
-      setError("Invalid email or password. Please try again.");
+    let data =
+    {
+      email: email,
+      password: password
     }
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:3000/login',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${Cookies.get("marvel-token")}`
+      },
+      data : data
+    };
+
+    axios.request(config)
+    .then((response) => {
+      handleToken(response.data.token);
+      navigate("/characters");
+    })
+    .catch((error) => {
+      setError("Invalid email or password. Please try again.");
+      console.log(error);
+    });
   };
 
   const handleSignup = () => {

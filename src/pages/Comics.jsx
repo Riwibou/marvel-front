@@ -51,6 +51,7 @@ const Comics = () => {
         {comics.map((comic, index) => {
           let bookmark = setBookmark(comic)
           bookmark.id = index;
+          console.log(bookmark);
 
           return (
           <div key={comic._id} className="comic-card">

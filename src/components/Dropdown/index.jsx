@@ -21,7 +21,7 @@ const Dropdown = () => {
               <div className="first">
                 <img
                   className="thumb-shop"
-                  src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+                  src={`${item.thumbnail}`}
                   alt="bookmark"
                 />
               </div>

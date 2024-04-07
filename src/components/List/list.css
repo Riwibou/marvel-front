@@ -14,6 +14,7 @@
 
 .small-cart {
   cursor: pointer;
+  height: 40px;
 }
 
 .small-cart:hover {
@@ -42,4 +43,3 @@
   top: 13%;
   left: 7.5%;
 }
-
