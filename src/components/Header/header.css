@@ -1,0 +1,107 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 90%;
+  height: 120px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 210px;
+  height: auto;
+}
+
+.header-logo img {
+  height: auto;
+  width: 100%;
+}
+
+.header-middle {
+  width: 630px;
+}
+
+.header-filter {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  height: 37px;
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  padding-left: 40px;
+  width: 590px;
+}
+
+.search-bar {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.switch input {
+  display: none;
+}
+
+.container-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin-right: 10px;
+}
+
+.nav ul > li {
+  float: left;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.login-btn,
+.signup-btn {
+  text-decoration: none;
+  background-color: #fff;
+  color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-size: 12px;
+  height: 30px;
+  width: 115px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selling-btn {
+  text-decoration: none;
+  background-color: #2cb1ba;
+  color: #fff;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-size: 12px;
+  height: 30px;
+  width: 115px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.selling-btn {
+  text-decoration: none;
+}
+
+.toggle-title {
+  font-size: 12px;
+}
