@@ -25,7 +25,7 @@ const ComicsOf1Hero = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/comics/${id.characterId}`
+          `site--marvel--gpvxp89pqghq.code.run/comics/${id.characterId}`
         );
 
         console.log(response.data);

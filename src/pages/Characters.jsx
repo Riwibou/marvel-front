@@ -12,7 +12,7 @@ const Characters = () => {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/characters?page=${currentPage}`);
+        const response = await axios.get(`site--marvel--gpvxp89pqghq.code.run/characters?page=${currentPage}`);
         const filteredCharacters = response.data.results.filter(character => {
           return character.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
                  character.thumbnail.extension !== "gif";

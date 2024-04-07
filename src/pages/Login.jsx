@@ -23,7 +23,7 @@ const Login = ({ handleToken }) => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:3000/login',
+      url: 'site--marvel--gpvxp89pqghq.code.run/login',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${Cookies.get("marvel-token")}`

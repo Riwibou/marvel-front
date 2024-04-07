@@ -46,7 +46,7 @@ const Header = ({ token, search, handleToken, setSearch }) => {
                 </li>
                 <li>
                 <Link to="/comics">View Comics</Link>
-                </li>
+              </li>
               </>
               ) : (
                 <>

@@ -16,7 +16,7 @@ const CharacterFocus = ({ character }) => {
 
         const comicsData = []
           for (const comicId of character.comics) {
-            const response = await axios.get('http://localhost:3000/comic/${characterId}')
+            const response = await axios.get('site--marvel--gpvxp89pqghq.code.run/comic/${characterId}')
             comicsData.push(response.data)
           }
 
