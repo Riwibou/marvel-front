@@ -13,7 +13,7 @@ const Characters = () => {
     const fetchCharacters = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/characters?`
+          `http://localhost:3000/characters`
         );
         setCharacters(response.data.results);
         setIsLoading(false);
@@ -40,7 +40,7 @@ const Characters = () => {
   ) : (
     <div className="main">
       <div className="characters-container">
-        {characters
+        {currentCharacters
           .filter((character) => {
             // Filtre les sans photo//
             return (
@@ -50,7 +50,6 @@ const Characters = () => {
           }) // .map sur le reste
           .map((character) => {
             const {_id} = character
-            console.log("id ====>", _id);
             return (
               <div key={character._id} className="character-card">
                 <h1>{character.name}</h1>
@@ -73,6 +72,15 @@ const Characters = () => {
             );
           })}
       </div>
+      <Pagination
+        activePage={currentPage}
+        itemsCountPerPage={charactersPerPage}
+        totalItemsCount={characters.length}
+        pageRangeDisplayed={5}
+        onChange={handlePageChange}
+        itemClass="page-item"
+        linkClass="page-link"
+      />
     </div>
   );
 };

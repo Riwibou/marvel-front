@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 
 const ComicsOf1Hero = () => {
   const [data, setData] = useState();
-  const [isloading, setIsloading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const id = useParams()
- 
+
   const {
     state: { bookmarks },
     dispatch,
@@ -30,20 +30,20 @@ const ComicsOf1Hero = () => {
 
         console.log(response.data);
         setData(response.data);
-        setIsloading(false);
+        setIsLoading(false);
       } catch (error) {
         console.log({ message: error.message });
       }
     };
     fetchData();
   }, [id]);
-  return isloading ? (
+  return isLoading ? (
     <p> Chargement </p>
     // trouver une icone de chargement react a mettre ici
   ) : (
     <div className="main">
       <div className="characters-container">
-        {data.results.map((comic, index) => {
+        {data.comics.map((comic, index) => {
           let bookmark = setBookmark(comic)
           bookmark.id = index;
 
