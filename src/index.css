@@ -1,6 +1,6 @@
 body {
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(172,0,0,1) 49%, rgba(0,38,120,1) 100%);
+  background: rgb(55,0,0);
+  background: linear-gradient(133deg, rgba(55,0,0,1) 29%, rgba(0,0,0,1) 50%, rgba(0,3,51,1) 74%);
 }
 
 .svg-container {
@@ -13,7 +13,7 @@ body {
 }
 .characters-container, .comics-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
 
