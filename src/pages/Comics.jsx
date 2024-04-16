@@ -56,7 +56,7 @@ const Comics = () => {
 
           return (
             <>
-            <Link key={comic._id} to={`/comic/${comic._id}`}>
+            <Link key={comic._id} to={`/comic/${comic._id}`} state= {{ comic: comic }}>
           <div key={comic._id} className="comic-card">
             <h1>{comic.name}</h1>
               <div className="comic-info">

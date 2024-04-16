@@ -60,12 +60,14 @@ const Header = ({ token, search, handleToken, setSearch }) => {
                     <p>S&apos;inscrire</p>
                   </Link>
                 </li>
-                <li>
-                <Link to="/characters">View Characters</Link>
-                </li>
-                <li>
-                <Link to="/comics">View Comics</Link>
-                </li>
+                <div className="container-chars-comics">
+                  <li>
+                  <Link className="link-chars" to="/characters">View Characters</Link>
+                  </li>
+                  <li>
+                  <Link className="link-comics" to="/comics">View Comics</Link>
+                  </li>
+                </div>
               </>
               )}
             </ul>

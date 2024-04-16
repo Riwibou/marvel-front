@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Characters from "./pages/Characters"
 import CharacterFocus from "./pages/CharacterFocus"
 import Comics from "./pages/Comics"
+import Comic from "./pages/Comic"
 import ComicsOf1Hero from "./pages/ComicsOf1Hero"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
@@ -38,6 +39,7 @@ function App() {
       <Route path="/" element={<Home />} />
         <Route path="/characters" element={<Characters />} />
         <Route path="/character/:characterId" element={<CharacterFocus />} />
+        <Route path="/comic/:comicId" element={<Comic />} />
         <Route path="/comics" element={<Comics />} />
         <Route path="/comics/:characterId" element={<ComicsOf1Hero />} />
         <Route path="/login" element={<Login handleToken={handleToken}/>}/>

@@ -8,10 +8,10 @@ function Home() {
       </h1>
       <p>Explore your favorite characters and comics</p>
       <p>Save them in the star</p>
-
+{/* 
       <Link to="/characters">View Characters</Link>
-      <span style={{ marginLeft: '100px' }} /> 
-      <Link to="/comics">View Comics</Link>
+      <span style={{ marginLeft: '100px' }} />
+      <Link to="/comics">View Comics</Link> */}
     </div>
   )
 }

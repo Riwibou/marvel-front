@@ -1,6 +1,7 @@
 .center {
   display: flex;
   justify-content: center;
+  background-color: #2b2b2b;
 }
 
 .container-header {
@@ -35,7 +36,7 @@
 
 .search-bar input {
   height: 37px;
-  background-color: #f5f6f7;
+  background-color: #e4e5e5;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -71,9 +72,9 @@
 .login-btn,
 .signup-btn {
   text-decoration: none;
-  background-color: #fff;
-  color: #2cb1ba;
-  border: 1px solid #2cb1ba;
+  background-color: #3e2a42;
+  color: #FFD700;
+  border: 1px solid #FFD700;
   border-radius: 5px;
   font-size: 12px;
   height: 30px;
@@ -85,9 +86,9 @@
 
 .selling-btn {
   text-decoration: none;
-  background-color: #2cb1ba;
+  background-color: #ba2c2c;
   color: #fff;
-  border: 1px solid #2cb1ba;
+  border: 1px solid #FFD700;
   border-radius: 5px;
   font-size: 12px;
   height: 30px;
@@ -104,4 +105,21 @@
 
 .toggle-title {
   font-size: 12px;
+}
+
+.container-chars-comics {
+  position: absolute;
+  top: 14%;
+  left: 18%;
+  transform: translateX(-10%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.link-comics, .link-chars {
+  margin: 25px;
+  color: #FFD700;
+  text-decoration: none;
+
 }
