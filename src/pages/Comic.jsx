@@ -44,15 +44,21 @@ function Comic() {
     }
   }
 
-  async function fetchAllCharacters(totalPages) {
+  async function fetchAllCharacters() {
     let allCharacters = [];
+    let page = 1;
+    let totalPages = 1;
 
-    for (let page = 1; page <= totalPages; page++) {
+    while (page <= totalPages) {
       try {
         const response = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/characters?page=${page}`);
-        allCharacters = allCharacters.concat(response.data.results);
+        const characters = response.data.results;
+        allCharacters = allCharacters.concat(characters);
+        totalPages = Math.ceil(response.data.count / response.data.limit);
+        page++;
       } catch (error) {
         console.error(error);
+        break;
       }
     }
 
