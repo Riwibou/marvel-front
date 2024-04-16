@@ -12,20 +12,52 @@ function Comic() {
     const fetchComicAndCharacs = async () => {
       try {
         if (!comic) return;
-        // characs du comic
 
-        const characResponse = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/characters`);
-        const characData = characResponse.data.results.filter(charac => charac.comics.includes(comic._id));
+        console.log("Comic ID:", comic._id);
+
+        const totalPages = await getTotalPages();
+        console.log("Total Pages:", totalPages);
+
+        const allCharacters = await fetchAllCharacters(totalPages);
+        console.log("All Characters:", allCharacters);
+
+        const characData = allCharacters.filter(charac => charac.comics.includes(comic._id));
+        console.log("Filtered Characters:", characData);
+
         setCharacs(characData);
-
         setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchComicAndCharacs()
+    fetchComicAndCharacs();
   }, [comic]);
+
+  async function getTotalPages() {
+    try {
+      const response = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/characters`);
+      return response.data.totalPages;
+    } catch (error) {
+      console.error(error);
+      return 0;
+    }
+  }
+
+  async function fetchAllCharacters(totalPages) {
+    let allCharacters = [];
+
+    for (let page = 1; page <= totalPages; page++) {
+      try {
+        const response = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/characters?page=${page}`);
+        allCharacters = allCharacters.concat(response.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    return allCharacters;
+  }
 
   return isLoading ? (
     <p>Loading...</p>
