@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -8,7 +8,8 @@ function Home() {
       </h1>
       <p>Explore your favorite characters and comics</p>
       <p>Save them in the star</p>
-{/* 
+      <p>you will need to create an account for that</p>
+{/*
       <Link to="/characters">View Characters</Link>
       <span style={{ marginLeft: '100px' }} />
       <Link to="/comics">View Comics</Link> */}

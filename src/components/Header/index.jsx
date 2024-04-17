@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown"
 import List from "../List"
 import SearchBar from "../SearchBar";
+import Logo from "../Logo"
 import "./header.css"
+import * as THREE from 'three';
+
 
 const Header = ({ token, handleToken }) => {
   return (
@@ -12,7 +15,7 @@ const Header = ({ token, handleToken }) => {
       <header className="container-header">
         <div className="header-logo">
           <Link to="/">
-            <img src="logo.png" alt="logo-marvel" />
+            <Logo/>
           </Link>
         </div>
         <SearchBar/>
