@@ -1,0 +1,18 @@
+.search {
+  color: rgb(70, 69, 69);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search > div {
+  width: 300px;
+  border: 2px solid #FFD700;
+  padding: 6px 15px;
+  border-radius: 6px;
+}
+.search input {
+  border: 2px solid #FFD700;
+  width: 250px;
+  color: white;
+  padding: 5px 15px;
+}

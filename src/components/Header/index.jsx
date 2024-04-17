@@ -3,9 +3,10 @@
 import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown"
 import List from "../List"
+import SearchBar from "../SearchBar";
 import "./header.css"
 
-const Header = ({ token, search, handleToken, setSearch }) => {
+const Header = ({ token, handleToken }) => {
   return (
     <div className="center">
       <header className="container-header">
@@ -14,21 +15,7 @@ const Header = ({ token, search, handleToken, setSearch }) => {
             <img src="logo.png" alt="logo-marvel" />
           </Link>
         </div>
-
-        <div className="header-middle">
-          <div className="search-bar">
-            <input
-            name="search"
-            type="text"
-            placeholder="Search a Hero or Comic"
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value)
-            }}
-            />
-          </div>
-        </div>
-
+        <SearchBar/>
         <div>
           <nav className="nav">
             <ul>

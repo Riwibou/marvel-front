@@ -13,57 +13,40 @@ function Comic() {
       try {
         if (!comic) return;
 
-        console.log("Comic ID:", comic._id);
+        const allCharactersPromises = [];
+        let totalPages = 1;
+        let page = 1;
 
-        const totalPages = await getTotalPages();
-        console.log("Total Pages:", totalPages);
+        while (page <= totalPages) {
+          console.log(`Fetching page ${page}...`);
+          const response = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/characters?page=${page}`);
+          console.log(`Response for page ${page}:`, response);
+          allCharactersPromises.push(response);
+          page++;
+        }
 
-        const allCharacters = await fetchAllCharacters(totalPages);
-        console.log("All Characters:", allCharacters);
+        console.log('All characters promises:', allCharactersPromises);
+
+        const allCharactersResponses = await Promise.all(allCharactersPromises);
+        console.log('All characters responses:', allCharactersResponses);
+
+        const allCharacters = allCharactersResponses.flatMap(response => response.data.results);
+        console.log('All characters:', allCharacters);
 
         const characData = allCharacters.filter(charac => charac.comics.includes(comic._id));
-        console.log("Filtered Characters:", characData);
+        console.log('Filtered characters:', characData);
 
         setCharacs(characData);
+
         setIsLoading(false);
       } catch (error) {
         console.error(error);
+        setIsLoading(false);
       }
     };
 
     fetchComicAndCharacs();
   }, [comic]);
-
-  async function getTotalPages() {
-    try {
-      const response = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/characters`);
-      return response.data.totalPages;
-    } catch (error) {
-      console.error(error);
-      return 0;
-    }
-  }
-
-  async function fetchAllCharacters() {
-    let allCharacters = [];
-    let page = 1;
-    let totalPages = 1;
-
-    while (page <= totalPages) {
-      try {
-        const response = await axios.get(`https://site--marvel--gpvxp89pqghq.code.run/characters?page=${page}`);
-        const characters = response.data.results;
-        allCharacters = allCharacters.concat(characters);
-        totalPages = Math.ceil(response.data.count / response.data.limit);
-        page++;
-      } catch (error) {
-        console.error(error);
-        break;
-      }
-    }
-
-    return allCharacters;
-  }
 
   return isLoading ? (
     <p>Loading...</p>
@@ -71,7 +54,7 @@ function Comic() {
     <div>
       <h2>Comic Details:</h2>
       <p>Name: {comic.title}</p>
-      <p>Description: {comic.description}</p>
+      <p>Description: <span dangerouslySetInnerHTML={{ __html: comic.description }} /></p>
       <p>Thumbnail: <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.name} /></p>
 
       <h2>Heroes in this Comic:</h2>
